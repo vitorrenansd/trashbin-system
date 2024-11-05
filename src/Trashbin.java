@@ -25,7 +25,7 @@ public class Trashbin {
     public void cleanTrashbin() {
         this.fullness = 0;
         this.clean += 1;
-        System.out.println("CLEANING...");
+        System.out.println("Cleaning " + this.location + " trash bin...");
         scanTrashbin();
     }
 
