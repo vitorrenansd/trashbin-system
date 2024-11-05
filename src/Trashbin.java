@@ -7,7 +7,7 @@ public class Trashbin {
 
 
     // Constructor
-    public void Trashbin(int height, String location) {
+    public Trashbin(int height, String location) {
         this.height = height;
         this.location = location;
         this.clean = 0;
