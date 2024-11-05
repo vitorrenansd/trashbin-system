@@ -4,21 +4,19 @@ public class Main {
     public static void main(String[] args) {
 
         Random random = new Random();
-        int randInt1 = random.nextInt(0, 100);
-        int randInt2 = random.nextInt(0, 200);
-
         Trashbin trash1 = new Trashbin(100, "Las Vegas");
-        Trashbin trash2 = new Trashbin(200,"London");
-        
-        trash1.setPercentage(randInt1);
-        trash1.cleanTrashbin();
-        trash1.setPercentage(randInt1);
-        trash1.cleanTrashbin();
-        trash1.cleanTrashbin();
+        Trashbin trash2 = new Trashbin(500,"London");
 
-        trash2.setPercentage(randInt2);
+        // Tests
+        trash1.setPercentage(random.nextInt(0, 100));
+        trash1.cleanTrashbin();
+        trash1.setPercentage(random.nextInt(0, 100));
+
+        trash2.setPercentage(random.nextInt(0, 500));
         trash2.cleanTrashbin();
-        
+        trash2.setPercentage(random.nextInt(0, 500));
+        trash2.cleanTrashbin();
+
 
     }
 }
