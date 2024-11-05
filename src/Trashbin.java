@@ -17,7 +17,7 @@ public class Trashbin {
 
     // Set the % of fullness
     public void setPercentage(int soundReturn) {
-        this.fullness = this.height - soundReturn;
+        this.fullness = (this.height - soundReturn) * 100 / this.height;
         scanTrashbin();
     }
 
