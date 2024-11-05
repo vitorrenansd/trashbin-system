@@ -21,7 +21,7 @@ public class Trashbin {
 
     // Cleans the trashbin
     public void cleanTrashbin() {
-        this.status = "empty";
+        this.status = "Empty";
         this.fullness = 0;
         this.clean += 1;
     }
