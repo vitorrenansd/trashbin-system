@@ -1,44 +1,50 @@
 public class Trashbin {
-    private int height;
-    private String location;
+    private final int height;
+    private final String location;
     private int clean;
     private String status;
     private int fullness;
 
 
     // Constructor
-    public Trashbin(int height, String location) {
-        this.height = height;
+    public Trashbin(int heightCM, String location) {
+        this.height = heightCM;
         this.location = location;
         this.clean = 0;
-        this.status = "empty";
-    }
-
-    // Get the % of fullness
-    public void getPercentage(int soundReturn) {
-        this.fullness = this.height - soundReturn;
-    }
-
-    // Cleans the trashbin
-    public void cleanTrashbin() {
         this.status = "Empty";
         this.fullness = 0;
+    }
+
+    // Set the % of fullness
+    public void setPercentage(int soundReturn) {
+        this.fullness = this.height - soundReturn;
+        scanTrashbin();
+    }
+
+    // Cleans the trash bin
+    public void cleanTrashbin() {
+        this.fullness = 0;
         this.clean += 1;
+        System.out.println("CLEANING...");
+        scanTrashbin();
     }
 
     // Change status of the trash bin
-    public void scanTrashbin(int trash) {
+    private void scanTrashbin() {
         if (this.fullness >= this.height / 100 * 80) {
             this.status = "Full";
-        }
-        if (this.fullness <= this.height / 100 * 20) {
+            printTrashbin();
+        } else if (this.fullness <= this.height / 100 * 20) {
             this.status = "Empty";
+            printTrashbin();
         } else {
             this.status = "Half Empty";
+            printTrashbin();
         }
     }
 
-    public void printTrashbin() {
-        System.out.println(this.status + " | " + this.location + " | " + this.clean + " | " + this.fullness + "%");
+    private void printTrashbin() {
+        System.out.println("Status: " + this.status + " | Location: " + this.location + " | Cleaned: " + this.clean + " | Fullness: " + this.fullness + "%");
     }
+
 }
