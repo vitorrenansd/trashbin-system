@@ -5,7 +5,7 @@ public class Trashbin {
     private String status;
     private int fullness;
 
-    
+
     // Constructor
     public void Trashbin(int height, String location) {
         this.height = height;
@@ -25,7 +25,7 @@ public class Trashbin {
         this.fullness = 0;
         this.clean += 1;
     }
-    
+
     // Change status of the trash bin
     public void scanTrashbin(int trash) {
         if (this.fullness >= this.height / 100 * 80) {
@@ -37,8 +37,8 @@ public class Trashbin {
             this.status = "Half Empty";
         }
     }
-    
+
     public void printTrashbin() {
-        System.out.println(this.status + " | " + this.location + " | " + this.clean + " | " + getPercentage());
+        System.out.println(this.status + " | " + this.location + " | " + this.clean + " | " + this.fullness + "%");
     }
 }
