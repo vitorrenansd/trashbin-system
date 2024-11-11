@@ -43,6 +43,7 @@ public class Trashbin {
         }
     }
 
+    // Method to print all the attributes
     private void printTrashbin() {
         System.out.println("Status: " + this.status + " | Location: " + this.location + " | Cleaned: " + this.clean + " | Fullness: " + this.fullness + "%");
     }
