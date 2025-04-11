@@ -4,11 +4,16 @@ import trashbin.system.Trashbin;
 
 public class Main {
     public static void main(String[] args) {
-        Trashbin trash1 = new Trashbin();
-        Trashbin trash2 = new Trashbin();
-        Trashbin trash3 = new Trashbin();
+        Trashbin trash = new Trashbin();
 
+        trash.setHeight(45);
+        trash.setLocation("B1");
+        trash.showInformation();
 
+        trash.updateFullness(28);
+        trash.showInformation();
 
+        trash.cleanTrashbin();
+        trash.showInformation();
     }
 }
