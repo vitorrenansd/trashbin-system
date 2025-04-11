@@ -4,7 +4,7 @@ public class Trashbin {
     private int height; // Height of the trashbin
     private int fullness = 0; // % of fullness
     private int cleaned = 0; // How many times was clean
-    private String status = "Empty"; // Updated status
+    private String status = "N/A"; // Updated status
     private String location; // Identification
 
 
@@ -60,7 +60,7 @@ public class Trashbin {
             throw new SensorException("Ultrasonic sensor failure: value out of expected range"); 
         }
 
-        int percent = (getHeight() - soundReturn) * 100 / getHeight();
+        int percent = soundReturn * 100 / getHeight();
         
         setFullness(percent);
         updateStatus();
@@ -68,7 +68,7 @@ public class Trashbin {
 
     // Change status of the trash bin
     private void updateStatus() {
-        if (getFullness() >= (getHeight()  * 0.80)) {
+        if (getFullness() >= (getHeight() * 0.80)) {
             setStatus("Full");
         } else if (getFullness() <= (getHeight() * 0.20)) {
             setStatus("Empty");
