@@ -1,6 +1,6 @@
 package trashbin;
 
-import trashbin.system.Trashbin;
+import trashbin.system.*;
 
 public class Main {
     public static void main(String[] args) {
