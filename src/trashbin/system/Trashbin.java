@@ -21,6 +21,9 @@ public class Trashbin {
     private void setFullness(int fullness) {
         this.fullness = fullness;
     }
+    private int getFullness() {
+        return this.fullness;
+    }
 
     private void setCleaned(int cleaned) {
         this.cleaned = cleaned;
@@ -31,6 +34,9 @@ public class Trashbin {
 
     private void setStatus(String status) {
         this.status = status;
+    }
+    public String getStatus() {
+        return this.status;
     }
 
     public void setLocation(String location) {
@@ -50,7 +56,7 @@ public class Trashbin {
 
     public void updateFullness(int soundReturn) {
         // var soundReturn is the distance value returned by the ultrasonic sensor
-        if (soundReturn >= getHeight() || soundReturn <= 0) {
+        if (soundReturn >= getHeight() || soundReturn < 0) {
             throw new SensorException("Ultrasonic sensor failure: value out of expected range"); 
         }
 
@@ -62,12 +68,16 @@ public class Trashbin {
 
     // Change status of the trash bin
     private void updateStatus() {
-        if (this.fullness >= getHeight() / 100 * 80) {
+        if (getFullness() >= (getHeight()  * 0.80)) {
             setStatus("Full");
-        } else if (this.fullness <= getHeight() / 100 * 20) {
+        } else if (getFullness() <= (getHeight() * 0.20)) {
             setStatus("Empty");
         } else {
             setStatus("Half Empty");
         }
+    }
+
+    public void showInformation() {
+        System.out.printf("LOCATION: %s | CLEANED: %dx | FULLNESS: %d%% | STATUS: %s \n", getLocation(), getCleaned(), getFullness(), getStatus());
     }
 }
